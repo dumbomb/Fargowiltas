@@ -299,49 +299,10 @@ namespace Fargowiltas.Items
             }
             else if (Construction.Contains(item.type))
             {
-                //Old Code
-                //Item fakeItem = new Item();
-                //fakeItem.SetDefaults(item.type);
+                Item fakeItem = new Item();
+                fakeItem.SetDefaults(item.type);
                 //player.VanillaUpdateEquip(fakeItem);
-
-                //Maybe workaround for Construction Accessories missing in VanillaUpdateEquip method. I think multiple toolbelts and toolboxes can be stacked, either through equipping them or in the bank itself unfortunately.
-                //Basically just copies everything from Player.cs regarding these
-                if (item.type == ItemID.Toolbelt)
-                {
-                    player.blockRange += 1;
-                }
-                if (item.type == ItemID.Toolbox)
-                {
-                    player.tileRangeX += 1;
-                    player.tileRangeY += 1;
-                }
-                if (item.type == ItemID.ExtendoGrip)
-                {
-                    player.equippedAnyTileRangeAcc = true;
-                }
-                if (item.type == ItemID.PaintSprayer)
-                {
-                    player.autoPaint = true;
-                }
-                if (item.type == ItemID.BrickLayer)
-                {
-                    player.equippedAnyTileSpeedAcc = true;
-                }
-                if (item.type == ItemID.PortableCementMixer)
-                {
-                    player.equippedAnyWallSpeedAcc = true;
-                }
-                if (item.type == ItemID.ActuationAccessory)
-                {
-                    player.autoActuator = true;
-                }
-                if (item.type == ItemID.ArchitectGizmoPack)
-                {
-                    player.equippedAnyTileRangeAcc = true;
-                    player.autoPaint = true;
-                    player.equippedAnyTileSpeedAcc = true;
-                    player.equippedAnyWallSpeedAcc = true;
-                }
+                player.UpdateAccessory(fakeItem);
             }
         }
 
