@@ -299,10 +299,9 @@ namespace Fargowiltas.Items
             }
             else if (Construction.Contains(item.type))
             {
-                Item fakeItem = new Item();
-                fakeItem.SetDefaults(item.type);
-                //player.VanillaUpdateEquip(fakeItem);
-                player.UpdateEquips(fakeItem);
+                //Item fakeItem = new Item();
+                //fakeItem.SetDefaults(item.type);
+                player.ApplyEquipFunctional(item, true);
             }
         }
 
