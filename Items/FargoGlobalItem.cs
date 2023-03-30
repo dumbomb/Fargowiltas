@@ -302,7 +302,7 @@ namespace Fargowiltas.Items
                 Item fakeItem = new Item();
                 fakeItem.SetDefaults(item.type);
                 //player.VanillaUpdateEquip(fakeItem);
-                player.UpdateAccessory(fakeItem);
+                player.UpdateEquips(fakeItem);
             }
         }
 
